@@ -2050,6 +2050,18 @@ PERFORMANCE OF THIS SOFTWARE.
             event.stopPropagation();
         }));
     }));
+    function toggleActive(element) {
+        element.classList.toggle("active");
+    }
+    document.addEventListener("DOMContentLoaded", (function() {
+        var elementsWithOnclick = document.querySelectorAll('[onclick="toggleActive(this)"]');
+        elementsWithOnclick.forEach((function(element) {
+            element.removeAttribute("onclick");
+            element.addEventListener("click", (function() {
+                toggleActive(this);
+            }));
+        }));
+    }));
     window["FLS"] = 0;
     isWebp();
     showMore();
