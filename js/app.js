@@ -2182,6 +2182,43 @@ PERFORMANCE OF THIS SOFTWARE.
             }));
         }));
     }));
+    const script_tabs = document.querySelectorAll(".tabs-profile__item");
+    script_tabs.forEach((function(tab) {
+        tab.onclick = function() {
+            script_tabs.forEach((function(tab) {
+                tab.classList.remove("active");
+            }));
+            tab.classList.add("active");
+        };
+    }));
+    const tabsContent = document.querySelectorAll(".tabs-content-profile__item");
+    tabsContent.forEach((function(tab) {
+        tab.onclick = function() {
+            tabsContent.forEach((function(tab) {
+                tab.classList.remove("active");
+            }));
+            tab.classList.add("active");
+        };
+    }));
+    document.addEventListener("DOMContentLoaded", (function() {
+        const switchInput = document.querySelector(".switch-mode");
+        const modeText = document.querySelector(".mode__text");
+        switchInput.addEventListener("change", (function() {
+            document.documentElement.classList.toggle("dark");
+            if (document.documentElement.classList.contains("dark")) modeText.textContent = "Dark Mode"; else modeText.textContent = "Light Mode";
+        }));
+    }));
+    document.addEventListener("DOMContentLoaded", (function() {
+        const foldersItems = document.querySelectorAll(".folders-profile__item");
+        foldersItems.forEach((item => {
+            item.addEventListener("click", (function() {
+                foldersItems.forEach((item => {
+                    item.classList.remove("active");
+                }));
+                this.classList.add("active");
+            }));
+        }));
+    }));
     window["FLS"] = 0;
     isWebp();
     spollers();
