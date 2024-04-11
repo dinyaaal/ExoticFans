@@ -2219,6 +2219,17 @@ PERFORMANCE OF THIS SOFTWARE.
             }));
         }));
     }));
+    document.addEventListener("DOMContentLoaded", (function() {
+        var items = document.querySelectorAll(".item-body-payment");
+        items.forEach((function(item) {
+            item.addEventListener("click", (function() {
+                items.forEach((function(element) {
+                    element.classList.remove("active");
+                }));
+                this.classList.add("active");
+            }));
+        }));
+    }));
     window["FLS"] = 0;
     isWebp();
     spollers();
