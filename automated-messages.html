@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240415173020">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240419175940">
 	<link rel="shortcut icon" href="favicon.ico">
 
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
@@ -667,9 +667,22 @@
 								</div>
 								<div class="automated__block">
 									<label class="automated__label">Fan type</label>
-									<div class="automated__body">
-										<textarea id="editor"></textarea>
+									<div class="automated__body automated__body-textarea">
+										<textarea id="editor" class="automated__textarea textarea"></textarea>
 									</div>
+								</div>
+								<div class="automated__bottom">
+									<div class="automated__delay delay-automated">
+										<div class="automated__block">
+											<label class="automated__label">Add delay</label>
+											<div class="delay-automated__body">
+												<p class="delay-automated__text">Send after</p>
+												<input min="0" type="number" class="delay-automated__input input input-main">
+												<p class="delay-automated__text">sec</p>
+											</div>
+										</div>
+									</div>
+									<button class="automated__button button"><span>Save changes</span></button>
 								</div>
 							</div>
 						</div>
@@ -1074,7 +1087,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20240415173020"></script>
+	<script src="js/app.min.js?_v=20240419175940"></script>
 
 </body>
 
