@@ -8856,6 +8856,60 @@ PERFORMANCE OF THIS SOFTWARE.
                 firstDay: 1
             }
         });
+        if (document.getElementById("min")) new index_es("#min", {
+            isMobile: true,
+            autoClose: true,
+            minDate: new Date,
+            dateFormat: "MMM dd",
+            multipleDatesSeparator: " - ",
+            locale: {
+                days: [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ],
+                daysShort: [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ],
+                daysMin: [ "Su", "Mo", "Tu", "We", "Th", "Fr", "Sa" ],
+                months: [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ],
+                monthsShort: [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ],
+                today: "Today",
+                clear: "Clear",
+                dateFormat: "MM/dd/yyyy",
+                timeFormat: "hh:mm aa",
+                firstDay: 1
+            }
+        });
+        if (document.getElementById("max")) new index_es("#max", {
+            isMobile: true,
+            autoClose: true,
+            minDate: new Date,
+            dateFormat: "MMM dd",
+            multipleDatesSeparator: " - ",
+            locale: {
+                days: [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ],
+                daysShort: [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ],
+                daysMin: [ "Su", "Mo", "Tu", "We", "Th", "Fr", "Sa" ],
+                months: [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ],
+                monthsShort: [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ],
+                today: "Today",
+                clear: "Clear",
+                dateFormat: "MM/dd/yyyy",
+                timeFormat: "hh:mm aa",
+                firstDay: 1
+            }
+        });
+        new SimpleMDE({
+            element: document.getElementById("editor")
+        });
+        document.addEventListener("DOMContentLoaded", (function() {
+            const addButtonExcluding = document.querySelector(".exclude-input-box__add");
+            const massMessageBody = document.querySelector(".popup-mass-message__body");
+            const backButton = document.querySelector(".excluding__back");
+            if (addButtonExcluding) {
+                addButtonExcluding.addEventListener("click", (function() {
+                    massMessageBody.classList.toggle("active");
+                }));
+                backButton.addEventListener("click", (function() {
+                    massMessageBody.classList.remove("active");
+                }));
+            }
+        }));
         document.addEventListener("DOMContentLoaded", (function() {
             const slides = document.querySelectorAll(".groups__slide");
             slides.forEach((function(slide) {
@@ -8875,13 +8929,13 @@ PERFORMANCE OF THIS SOFTWARE.
             scrollToBottom();
         }
         const themeItems = document.querySelectorAll(".themes-messages-user__item");
-        const chatBody = document.querySelector(".content-chat__body");
-        if (themeItems && chatBody) {
+        const chatTheme = document.querySelector(".theme");
+        if (themeItems && chatTheme) {
             let activeTheme = null;
             function updateChatBackground() {
                 if (activeTheme) {
                     const background = getComputedStyle(activeTheme).getPropertyValue("background");
-                    chatBody.style.background = background;
+                    chatTheme.style.background = background;
                 }
             }
             themeItems.forEach((item => {
@@ -8895,9 +8949,118 @@ PERFORMANCE OF THIS SOFTWARE.
             }));
             window.onload = function() {
                 const savedBackground = localStorage.getItem("chatBackground");
-                if (savedBackground) chatBody.style.background = savedBackground;
+                if (savedBackground) chatTheme.style.background = savedBackground;
             };
         }
+        const monthItems = document.querySelectorAll(".item-months-statistics");
+        if (monthItems) document.addEventListener("DOMContentLoaded", (function() {
+            monthItems.forEach((function(item) {
+                item.addEventListener("click", (function() {
+                    monthItems.forEach((function(el) {
+                        el.classList.remove("active");
+                    }));
+                    this.classList.add("active");
+                }));
+            }));
+        }));
+        const monthRange = document.querySelector(".months-statistics-range");
+        if (monthRange) document.addEventListener("DOMContentLoaded", (function() {
+            const popupMonth = document.querySelector(".popup-months-statistics-range");
+            monthRange.addEventListener("click", (function(event) {
+                this.classList.toggle("active");
+                event.stopPropagation();
+                monthItems.forEach((function(el) {
+                    el.classList.remove("active");
+                }));
+            }));
+            popupMonth.addEventListener("click", (function(event) {
+                event.stopPropagation();
+            }));
+            document.addEventListener("click", (function() {
+                monthRange.classList.remove("active");
+            }));
+        }));
+        const monthRangeItems = document.querySelectorAll(".popup-months-statistics-range__item");
+        if (monthRangeItems) document.addEventListener("DOMContentLoaded", (function() {
+            monthRangeItems.forEach((function(item) {
+                item.addEventListener("click", (function() {
+                    monthRangeItems.forEach((function(el) {
+                        el.classList.remove("active");
+                    }));
+                    this.classList.add("active");
+                }));
+            }));
+        }));
+        document.addEventListener("DOMContentLoaded", (function() {
+            var earningsCanvas = document.getElementById("earnings");
+            if (earningsCanvas) {
+                var earnings = earningsCanvas.getContext("2d");
+                var gradient = earnings.createLinearGradient(0, 0, 0, 400);
+                gradient.addColorStop(0, "#3f79cf");
+                gradient.addColorStop(1, "rgba(63, 121, 207, 0)");
+                new Chart(earnings, {
+                    type: "line",
+                    data: {
+                        labels: [ "1", "2", "3", "4", "5", "6", "7" ],
+                        datasets: [ {
+                            data: [ 0, 200, 250, 390, 150, 20, 100 ],
+                            fill: true,
+                            backgroundColor: gradient,
+                            borderColor: "#3F79CF",
+                            borderWidth: 5,
+                            pointRadius: 0,
+                            tension: .4
+                        } ]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+            }
+            var visitsCanvas = document.getElementById("visits");
+            if (visitsCanvas) {
+                var visits = visitsCanvas.getContext("2d");
+                gradient = visits.createLinearGradient(0, 0, 0, 400);
+                gradient.addColorStop(0, "#3f79cf");
+                gradient.addColorStop(1, "rgba(63, 121, 207, 0)");
+                new Chart(visits, {
+                    type: "line",
+                    data: {
+                        labels: [ "1", "2", "3", "4", "5", "6", "7" ],
+                        datasets: [ {
+                            data: [ 12, 19, 3, 5, 2, 3, 7 ],
+                            fill: true,
+                            backgroundColor: gradient,
+                            borderColor: "#3F79CF",
+                            borderWidth: 5,
+                            pointRadius: 0,
+                            tension: .4
+                        } ]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+            }
+        }));
         window["FLS"] = 0;
         isWebp();
         addTouchClass();
