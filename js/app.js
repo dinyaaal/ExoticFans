@@ -8674,6 +8674,14 @@ PERFORMANCE OF THIS SOFTWARE.
                 element.classList.toggle("active");
             }));
         }));
+        document.addEventListener("click", (event => {
+            const isClickInsideButtonMenu = buttonMenu.contains(event.target);
+            const isClickInsidePageMenu = pageMenu.contains(event.target);
+            if (!isClickInsideButtonMenu && !isClickInsidePageMenu) {
+                buttonMenu.classList.remove("active");
+                pageMenu.classList.remove("active");
+            }
+        }));
         const itemPageMenus = document.querySelectorAll(".item-page-menu");
         itemPageMenus.forEach((itemPageMenu => {
             itemPageMenu.addEventListener("click", (() => {
@@ -9060,6 +9068,18 @@ PERFORMANCE OF THIS SOFTWARE.
                     }
                 });
             }
+        }));
+        document.addEventListener("DOMContentLoaded", (function() {
+            var blockVids = document.querySelectorAll(".block-vid");
+            blockVids.forEach((function(blockVid) {
+                var deleteButton = blockVid.querySelector(".button-delete");
+                deleteButton.addEventListener("click", (function() {
+                    blockVid.style.transform = "scale(0)";
+                    setTimeout((function() {
+                        blockVid.remove();
+                    }), 300);
+                }));
+            }));
         }));
         window["FLS"] = 0;
         isWebp();

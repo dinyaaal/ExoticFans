@@ -2655,10 +2655,27 @@ body::after {
   transition: all 0.3s ease;
   font-weight: 600;
   font-size: 0.875rem;
+  max-width: 6.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  min-width: 5rem;
 }
 
 .user-item__name:not(:last-child) {
   margin-bottom: 0.625rem;
+}
+
+.user-item__username {
+  max-width: 6.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.75rem;
+  font-weight: 300;
+  width: 100%;
+  min-width: 5rem;
 }
 
 .user-item__status {
@@ -4766,6 +4783,8 @@ body::after {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .block-vid__content {
@@ -6900,6 +6919,30 @@ body::after {
           justify-content: space-between;
 }
 
+.popup-mass-message input {
+  font-size: 0.9375rem;
+}
+
+.popup-mass-message input::-webkit-input-placeholder {
+  font-size: 0.9375rem;
+}
+
+.popup-mass-message input::-moz-placeholder {
+  font-size: 0.9375rem;
+}
+
+.popup-mass-message input:-ms-input-placeholder {
+  font-size: 0.9375rem;
+}
+
+.popup-mass-message input::-ms-input-placeholder {
+  font-size: 0.9375rem;
+}
+
+.popup-mass-message input::placeholder {
+  font-size: 0.9375rem;
+}
+
 .popup-mass-message .input-box input {
   background-color: var(--secondary);
   outline: none;
@@ -7759,6 +7802,10 @@ body::after {
   gap: 0.9375rem;
 }
 
+.body-messages__button-wrapper {
+  padding: 0 1.25rem;
+}
+
 .groups__slide {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -7825,6 +7872,7 @@ body::after {
 
 .top-chat__block {
   padding: 0 1.125rem;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7832,6 +7880,12 @@ body::after {
       -ms-flex-align: center;
           align-items: center;
   gap: 1.25rem;
+}
+
+.top-chat__button {
+  height: 2.5rem;
+  padding: 0.3125rem;
+  margin: 0 0 0 auto;
 }
 
 .top-chat__group .item-groups {
@@ -8049,10 +8103,24 @@ body::after {
   padding: 1.25rem;
   background-color: var(--white);
   border-radius: 1.25rem 1.25rem 1.25rem 0;
-  max-width: 60%;
+  max-width: 100%;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+}
+
+.chat-message__text img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.chat-message__text .unlock__button {
+  font-size: 0.625rem;
+  line-height: normal;
 }
 
 .chat-message__bottom {
@@ -8189,8 +8257,37 @@ body::after {
   transition: all 0.3s ease;
 }
 
+.actions-input-chat__item--tip {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.25rem;
+  color: #29CE69;
+  font-weight: 500;
+}
+
+.actions-input-chat__item--tip svg {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 1.5rem;
+          flex: 0 0 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .footer-chat {
-  padding: 0.875rem 1.5625rem 1.5625rem 1.5625rem;
+  padding: 0.875rem 0.9375rem 0.9375rem 0.9375rem;
   display: -ms-grid;
   display: grid;
   gap: 1.0625rem;
@@ -8232,7 +8329,6 @@ body::after {
 
 .input-chat__input {
   width: 100%;
-  min-width: 12.5rem;
 }
 
 .input-chat__block {
@@ -11142,6 +11238,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     -ms-grid-columns: (1fr)[2];
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .chat-message__text {
+    max-width: 80%;
+  }
 }
 
 @media (min-width: 47.99875em) {
@@ -11751,6 +11851,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding-right: 1.875rem;
   }
 
+  .top-chat__button {
+    font-size: 1rem;
+  }
+
   .live__button {
     font-size: 1.25rem;
   }
@@ -12078,6 +12182,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding-right: 0.9375rem;
   }
 
+  .top-chat__button {
+    font-size: 0.875rem;
+  }
+
   .live__button {
     font-size: 1rem;
   }
@@ -12268,7 +12376,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding: 0 0.625rem;
   }
 
-  .chat {
+  .main-messages {
     display: none;
   }
 }
@@ -12294,6 +12402,21 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 
   .tabs-profile__item {
     border-right: 2px solid transparent;
+  }
+
+  .chat-message__text .unlock__button {
+    font-size: 0.5rem;
+  }
+
+  .chat-message__text .content-post__images {
+    max-height: 9.375rem;
+  }
+
+  .actions-chat-message {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 
@@ -12973,6 +13096,18 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     }
 }
 
+@supports (font-size: clamp( 0.875rem , 0.8157407407rem  +  0.2962962963vw , 1rem )) {
+    .top-chat__button {
+      font-size: clamp( 0.875rem , 0.8157407407rem  +  0.2962962963vw , 1rem );
+    }
+}
+
+@supports not (font-size: clamp( 0.875rem , 0.8157407407rem  +  0.2962962963vw , 1rem )) {
+    .top-chat__button {
+      font-size: calc(0.875rem + 0.125 * (100vw - 20rem) / 42.1875);
+    }
+}
+
 @supports (font-size: clamp( 1rem , 0.8814814815rem  +  0.5925925926vw , 1.25rem )) {
     .live__button {
       font-size: clamp( 1rem , 0.8814814815rem  +  0.5925925926vw , 1.25rem );
@@ -13196,6 +13331,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 
   .actions-input-chat__item:hover svg path {
     fill: var(--blue) !important;
+  }
+
+  .actions-input-chat__item--tip:hover svg path {
+    fill: #fff !important;
   }
 
   .actions-input-chat__item--sticker:hover svg path {
