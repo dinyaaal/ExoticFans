@@ -4773,6 +4773,19 @@ body::after {
 
 .block-add-vid__button {
   margin-top: 1.3125rem;
+  outline: 1px solid var(--blue);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.block-add-vid__button svg {
+  width: 1.5625rem;
+  height: 1.5625rem;
+}
+
+.block-add-vid__button svg path {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .block-vid {
@@ -4817,11 +4830,18 @@ body::after {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 0.3125rem;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.block-vid__button img {
+.block-vid__button svg {
   width: 1.5625rem;
   height: 1.5625rem;
+}
+
+.block-vid__button svg path {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .field-block-add-vid {
@@ -4829,6 +4849,22 @@ body::after {
   display: -ms-flexbox;
   display: flex;
   gap: 0.625rem;
+}
+
+.field-block-add-vid__button {
+  outline: 1px solid var(--blue);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.field-block-add-vid__button svg {
+  width: 1.5625rem;
+  height: 1.5625rem;
+}
+
+.field-block-add-vid__button svg path {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .field-block-add-vid__item {
@@ -13291,6 +13327,30 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 
   .item-socials-main-registration:hover {
     border: 1px solid var(--blue);
+  }
+
+  .block-add-vid__button:hover {
+    background-color: var(--white);
+  }
+
+  .block-add-vid__button:hover svg path {
+    fill: var(--blue) !important;
+  }
+
+  .block-vid__button:hover {
+    background-color: var(--blue);
+  }
+
+  .block-vid__button:hover svg path {
+    fill: #fff !important;
+  }
+
+  .field-block-add-vid__button:hover {
+    background-color: var(--white);
+  }
+
+  .field-block-add-vid__button:hover svg path {
+    fill: var(--blue) !important;
   }
 
   .field-block-add-vid__value:hover {
