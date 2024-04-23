@@ -9029,6 +9029,15 @@ PERFORMANCE OF THIS SOFTWARE.
                         plugins: {
                             legend: {
                                 display: false
+                            },
+                            tooltip: {
+                                mode: "index",
+                                intersect: false,
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.parsed.y;
+                                    }
+                                }
                             }
                         }
                     }
@@ -9063,6 +9072,15 @@ PERFORMANCE OF THIS SOFTWARE.
                         plugins: {
                             legend: {
                                 display: false
+                            },
+                            tooltip: {
+                                mode: "index",
+                                intersect: false,
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.parsed.y;
+                                    }
+                                }
                             }
                         }
                     }
@@ -9080,6 +9098,10 @@ PERFORMANCE OF THIS SOFTWARE.
                     }), 300);
                 }));
             }));
+        }));
+        const liveBody = document.querySelector(".live__body");
+        if (liveBody) liveBody.addEventListener("click", (function() {
+            this.classList.toggle("active");
         }));
         window["FLS"] = 0;
         isWebp();
